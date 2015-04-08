@@ -25,5 +25,12 @@ public class PlayerMovement : MonoBehaviour {
 			velocity.x += 1;
 
 		transform.Translate (velocity * Time.deltaTime * playerSpeed);
+
+		AudioSource sound = GameObject.Find("wacko").GetComponents<AudioSource>()[0];
+		if (velocity.magnitude == 0.0f) {
+			if (sound.isPlaying) sound.Stop();
+		} else {
+			if (!sound.isPlaying) sound.Play();
+		}
 	}
 }
