@@ -10,17 +10,19 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector2 velocity = new Vector2();
+		Vector3  velocity = new Vector2();
 
 		if (Input.GetKey ("up"))
-			velocity.y += 1;
+			velocity.z += 1;
 		if (Input.GetKey ("down"))
-			velocity.y -= 1;
+			velocity.z -= 1;
 		if (Input.GetKey ("left"))
 			velocity.x -= 1;
 		if (Input.GetKey ("right"))
 			velocity.x += 1;
 
 		print ("velocity = " + velocity);
+
+		transform.Translate (velocity);
 	}
 }
