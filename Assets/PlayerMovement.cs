@@ -10,13 +10,17 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown ("up"))
-			print ("up key was pressed");
-		if (Input.GetKeyDown ("down"))
-			print ("down key was pressed");
-		if (Input.GetKeyDown ("left"))
-			print ("left key was pressed");
-		if (Input.GetKeyDown ("right"))
-			print ("right key was pressed");
+		Vector2 velocity = new Vector2();
+
+		if (Input.GetKey ("up"))
+			velocity.y += 1;
+		if (Input.GetKey ("down"))
+			velocity.y -= 1;
+		if (Input.GetKey ("left"))
+			velocity.x -= 1;
+		if (Input.GetKey ("right"))
+			velocity.x += 1;
+
+		print ("velocity = " + velocity);
 	}
 }
