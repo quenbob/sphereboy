@@ -3,6 +3,9 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
+	// world units per second
+	static float playerSpeed = 5.0f;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -21,8 +24,6 @@ public class PlayerMovement : MonoBehaviour {
 		if (Input.GetKey ("right"))
 			velocity.x += 1;
 
-		print ("velocity = " + velocity);
-
-		transform.Translate (velocity);
+		transform.Translate (velocity * Time.deltaTime * playerSpeed);
 	}
 }
